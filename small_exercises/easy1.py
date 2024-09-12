@@ -110,18 +110,80 @@
 # print(running_total([3]) == [3])                  # True
 # print(running_total([]) == [])                    # True
 
-def running_total(nums):
-    running_total_list = []
-    total = 0
+# def running_total(nums):
+#     running_total_list = []
+#     total = 0
 
-    for num in nums:
-        total += num
-        running_total_list.append(total)
+#     for num in nums:
+#         total += num
+#         running_total_list.append(total)
 
-    return running_total_list
+#     return running_total_list
 
-print(running_total([2, 5, 13]) == [2, 7, 20])    # True
-print(running_total([14, 11, 7, 15, 20])
-      == [14, 25, 32, 47, 67])                    # True
-print(running_total([3]) == [3])                  # True
-print(running_total([]) == [])                    # True
+# print(running_total([2, 5, 13]) == [2, 7, 20])    # True
+# print(running_total([14, 11, 7, 15, 20])
+#       == [14, 25, 32, 47, 67])                    # True
+# print(running_total([3]) == [3])                  # True
+# print(running_total([]) == [])                    # True
+
+# LETTER COUNTER (PART 1) -> pretty good. couldve use more abstraction, but good
+
+# Problem
+# - Input: string with zero or more space-separated words
+# - Output: dictionary that shows num of words of different {sizes size: count}
+# - Requirements:
+#   - empty string -> empty dict
+#   - word is based on spaces
+
+# Edge/Test Cases
+# All of these examples should print True
+
+
+
+# Data Type
+# - dictionaries
+# - strings
+
+# Algorithm
+# 1. create a list of the string split on spaces
+# 2. create an empty result dictionary
+# 3. use a for loop to iterate over each element of the list
+# 4. for each iteration, set update the value of the key(length of list)
+#    to +1. use get function with 0 argument in case len has not been initialized yet
+# 5. return dictionary
+
+# def word_sizes(sentence):
+#     alnum_sentence = ""
+
+#     for char in sentence:
+#         if char.isalpha() or char == " ":
+#             alnum_sentence += char
+
+#     word_list = alnum_sentence.split()
+        
+#     result = {}
+
+#     for word in word_list:
+#         word_size = len(word)
+#         result[word_size] = result.get(word_size, 0) + 1
+
+#     return result
+
+# # All of these examples should print True
+
+# string = 'Four score and seven.'
+# print(word_sizes(string) == {4: 1, 5: 2, 3: 1})
+
+# string = 'Hey diddle diddle, the cat and the fiddle!'
+# print(word_sizes(string) == {3: 5, 6: 3})
+
+# string = 'Humpty Dumpty sat on a w@ll'
+# print(word_sizes(string) == {6: 2, 3: 2, 2: 1, 1: 1})
+
+# string = "What's up doc?"
+# print(word_sizes(string) == {5: 1, 2: 1, 3: 1})
+
+# print(word_sizes('') == {})
+
+# LETTER SWAP
+
