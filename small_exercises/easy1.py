@@ -388,14 +388,14 @@ def integer_to_string(my_int):
 
 # CONVERT A SIGNED NUMBER TO A STRING
 
-def signed_integer_to_string(my_int):
-    if my_int < 0:
-        return "-" + integer_to_string(-my_int)
-    elif my_int > 0:
-        return "+" + integer_to_string(my_int)
-    else:
-        return "0"
+# def signed_integer_to_string(my_int):
+#     if my_int < 0:
+#         return "-" + integer_to_string(-my_int)
+#     elif my_int > 0:
+#         return "+" + integer_to_string(my_int)
+#     else:
+#         return "0"
     
-print(signed_integer_to_string(4321) == "+4321")  # True
-print(signed_integer_to_string(-123) == "-123")   # True
-print(signed_integer_to_string(0) == "0")         # True
+# print(signed_integer_to_string(4321) == "+4321")  # True
+# print(signed_integer_to_string(-123) == "-123")   # True
+# print(signed_integer_to_string(0) == "0")         # True
