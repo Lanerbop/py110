@@ -185,5 +185,217 @@
 
 # print(word_sizes('') == {})
 
-# LETTER SWAP
+# LETTER SWAP -> correct, could have used helper functin
 
+# Problem
+# - Input: String of words separated by spaces
+# - Output: String with first and last letters of each word swapped
+
+# Test Cases
+
+
+# Data Structure
+# - Main data structure is a string
+
+# Algorithm
+# - Split initial string based on whitespace to get each word in a list
+# - Use a for loop to iterate through each word
+# - For each iteration, reassign the word with first and last letters switch
+#   using slicing and indexing + concatenation
+# - return the string joined on a space character
+
+# def swap(my_string):
+#     words = my_string.split()
+#     result = []
+
+#     for index in range(len(words)):
+#         word = words[index]
+#         if len(word) == 1:
+#             result.append(word)
+#         else:
+#             result.append(word[-1] + word[1:-1] + word[0])
+    
+#     return " ".join(result)
+
+# print(swap('Oh what a wonderful day it is')
+#       == "hO thaw a londerfuw yad ti si")  # True
+# print(swap('Abcde') == "ebcdA")            # True
+# print(swap('a') == "a")                    # True\
+
+# def swap_first_last_characters(word):
+#     if len(word) == 1:
+#         return word
+    
+#     else:
+#         return word[-1] + word[1:-1] + word[0]
+
+# def swap(my_string):
+#     words = my_string.split()
+#     result = []
+
+#     for index in range(len(words)):
+#         word = words[index]
+#         swapped_word = swap_first_last_characters(word)
+#         result.append(swapped_word)
+    
+#     return " ".join(result)
+
+# print(swap('Oh what a wonderful day it is')
+#       == "hO thaw a londerfuw yad ti si")  # True
+# print(swap('Abcde') == "ebcdA")            # True
+# print(swap('a') == "a")                    # True
+
+# CONVERT A STRING TO A NUMBER -> wrong, used int constructor function
+
+# Problem
+# - Input: string of digits
+# - Output: digits as an integer
+# - Requirements:
+#   - No constructor functions
+
+# Test Cases:
+
+
+# Data Structures
+# - Strings
+
+# Algorithm
+# - initialize sum variable as 0
+# - set tens_multiplier to 0
+# - use a while loop for each character/digit in initial string while string true
+#   - for each iteration, take modulo 10 to get rightmost digit
+#   - add digit * (10**tens_multiplier) to sum
+#   - increment tens_multipler by 1
+#   - divide num // 10
+# - return sum
+
+# def string_to_integer(num_as_string):
+#     sum = 0
+#     tens_multiplier = 0
+#     while num_as_string:
+#         digit = num_as_string[-1]
+#         sum += int(digit) * (10**tens_multiplier)
+#         tens_multiplier += 1
+#         num_as_string = num_as_string[:-1]
+#     return sum
+
+# print(string_to_integer("4321") == 4321)  # True
+# print(string_to_integer("570") == 570)    # True
+
+DIGITS = {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+}
+def string_to_integer(num_as_string):
+    sum = 0
+    for char in num_as_string:
+        sum = (sum * 10) + DIGITS[char]
+    return sum
+
+# print(string_to_integer("4321") == 4321)  # True
+# print(string_to_integer("570") == 570)    # True
+
+# CONVERT A STRING TO A SIGNED NUMBER -> didn't think of match/case
+
+# def string_to_signed_integer(num_as_string):
+#     match num_as_string[0]:
+#         case '-':
+#             return -string_to_integer(num_as_string[1:])
+#         case '+':
+#             return string_to_integer(num_as_string[1:])
+#         case _:
+#             return string_to_integer(num_as_string)
+
+# print(string_to_signed_integer("4321") == 4321)  # True
+# print(string_to_signed_integer("-570") == -570)  # True
+# print(string_to_signed_integer("+100") == 100)   # True
+
+# CONVERT A NUMBER TO A STRING
+
+# Problem
+# - Input: non-negative integer
+# - Output: string representing that integer
+
+# Test Cases
+
+
+# Data Structures
+# - strings
+
+# Algorithm
+# - create a digits dictionary with integer as key and string as value
+# - create an empty result string
+# - account for 0
+# - use a while loop
+#   - extract the rightmost digit using % 10
+#   - reassign the string to digits[digit] + current result
+#   - divide num // 10
+# - return result
+
+DIGITS = {
+    0: '0',
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9'
+}
+
+# def integer_to_string(my_int):
+#     result = ""
+#     if my_int == 0:
+#         return "0"
+#     while my_int:
+#         digit_int = my_int % 10
+#         digit_str = DIGITS[digit_int]
+#         result = digit_str + result
+#         my_int //= 10
+#     return result
+
+# print(integer_to_string(4321) == "4321")              # True
+# print(integer_to_string(0) == "0")                    # True
+# print(integer_to_string(5000) == "5000")              # True
+# print(integer_to_string(1234567890) == "1234567890")  # True
+
+def integer_to_string(my_int):
+    result = ""
+
+    if my_int == 0:
+        return "0"
+    
+    while my_int:
+        my_int, digit = divmod(my_int, 10)
+        result = DIGITS[digit] + result
+    
+    return result
+
+# print(integer_to_string(4321) == "4321")              # True
+# print(integer_to_string(0) == "0")                    # True
+# print(integer_to_string(5000) == "5000")              # True
+# print(integer_to_string(1234567890) == "1234567890")  # True
+
+# CONVERT A SIGNED NUMBER TO A STRING
+
+def signed_integer_to_string(my_int):
+    if my_int < 0:
+        return "-" + integer_to_string(-my_int)
+    elif my_int > 0:
+        return "+" + integer_to_string(my_int)
+    else:
+        return "0"
+    
+print(signed_integer_to_string(4321) == "+4321")  # True
+print(signed_integer_to_string(-123) == "-123")   # True
+print(signed_integer_to_string(0) == "0")         # True
